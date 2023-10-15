@@ -1,0 +1,118 @@
+.mainContainer {
+  background-color: rgb(236, 236, 236);
+  width: 550px;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.mainForm,
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.phone-div {
+  margin: 0;
+}
+.inside-phone {
+  margin: 0;
+  display: inline-block;
+}
+.btn-AD {
+  width: 108px;
+  margin-right: auto;
+  text-wrap: nowrap;
+  padding: 3px;
+  font-size: 12px;
+  width: 150px;
+  border: 0.1px solid #ff6600;
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: #ff6600;
+  margin-bottom: 15px;
+  font-weight: bold;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.btn-AD:active {
+  box-shadow: 0 0 0;
+}
+.Row {
+  min-width: 400px;
+  position: relative;
+}
+
+input {
+  border: none;
+  margin-top: 3px;
+  margin-right: 20px;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(55, 54, 54, 0.415);
+  writing-mode: vertical-rl;
+  padding: 4px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.erro-message {
+  border-radius: 4px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Tahoma;
+  font-weight: bold;
+  padding: 4px;
+  color: rgb(255, 0, 0);
+  position: absolute;
+  top: -45px;
+  left: 70px;
+}
+.circle-div {
+  position: absolute;
+
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+
+  bottom: -30px;
+  left: 12px;
+}
+.error {
+  margin: 0;
+}
+.btn-submit:disabled {
+  background-color: rgb(211, 233, 200);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  font-family: Tahoma;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+} outline
+
+.btn-submit {
+  background-color: rgb(7, 214, 7);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  font-family: Tahoma;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.remv {
+  width: 100px;
+  display: inline-block;
+}
