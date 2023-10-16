@@ -13,5 +13,8 @@ export class TemplateDrivenFormComponent {
   }
   onSubmit(form: NgForm) {
     this.formData.push(form.value);
+    form.reset();
   }
+
+  deletTabelRow(i: number) {}
 }

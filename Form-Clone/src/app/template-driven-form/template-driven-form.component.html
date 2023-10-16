@@ -49,7 +49,9 @@
     <div class="error-email" *ngIf="email.errors?.['email']">
       please input a valid email
     </div>
-    <div class="error-email" *ngIf="email.touched">Email is required</div>
+    <div class="error-email" *ngIf="email.touched && email.invalid">
+      Email is required
+    </div>
     <label for="dname">Father's name</label>
     <input
       type="text"
@@ -85,3 +87,34 @@
     />
   </form>
 </div>
+
+<Table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Father's name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of formData; let i = index">
+      <td>
+        <span>{{ formData[i].firstname }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].lastname }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].dname }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].email }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].phNumber }}</span>
+      </td>
+    </tr>
+  </tbody>
+</Table>
