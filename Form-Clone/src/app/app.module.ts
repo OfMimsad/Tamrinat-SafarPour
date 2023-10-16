@@ -8,7 +8,7 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
 
 import { CommonModule } from '@angular/common';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
-
+import { TableModuleModule } from './table-module/table-module.module';
 
 const appRoute : Routes = [{path: 'ReactiveForm', component:ReactiveFormsComponent}, {path:'ngModleForm', component: TemplateDrivenFormComponent}]
 @NgModule({
@@ -23,7 +23,8 @@ const appRoute : Routes = [{path: 'ReactiveForm', component:ReactiveFormsCompone
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    TableModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
