@@ -96,8 +96,7 @@ input:focus {
   font-size: 12px;
   border: none;
   border-radius: 4px;
-} outline
-
+}
 .btn-submit {
   background-color: rgb(7, 214, 7);
   margin-left: auto;
@@ -115,4 +114,17 @@ input:focus {
 .remv {
   width: 100px;
   display: inline-block;
+}
+
+table {
+  margin: 30px auto;
+  width: 100%;
+  border: solid 1px black;
+}
+
+tr,
+th,
+td {
+  border: 0.5px solid rgb(90, 90, 90);
+  text-align: center;
 }

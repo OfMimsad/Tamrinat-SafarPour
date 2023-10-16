@@ -9,8 +9,10 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.css'],
 })
 export class ReactiveFormsComponent {
-  userProfileForm: any;
+  formData: any;
+  userProfileForm: FormGroup;
   constructor(private fb: FormBuilder) {
+    this.formData = [];
     this.userProfileForm = this.fb.group({
       firstname: [
         '',
@@ -43,7 +45,6 @@ export class ReactiveFormsComponent {
       ]),
     });
   }
-
   get firstName() {
     return this.userProfileForm.get('firstname');
   }
@@ -70,10 +71,18 @@ export class ReactiveFormsComponent {
     );
   }
 
-  // test() {
-  //   console.log(this.numbers);
-  // }
+  onSubmit(): void {
+    this.formData.push(this.userProfileForm.value);
+    console.log(this.formData);
+    this.userProfileForm.reset();
+  }
 
+  // edit(i: number) {
+  //   // this.formData[i] = this.userProfileForm.value;
+  // }
+  // deleteData(i: number) {
+  //   this.formData.removeAt(i);
+  // }
   removeNum(i: number) {
     this.numbers.removeAt(i);
   }

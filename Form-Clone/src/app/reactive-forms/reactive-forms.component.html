@@ -8,7 +8,7 @@
       <div
         *ngIf="
           this.userProfileForm.get('firstname')?.invalid &&
-          this.userProfileForm.get('firstname').dirty
+          this.userProfileForm.get('firstname')?.dirty
         "
         class="error"
       >
@@ -48,7 +48,7 @@
       <label for="father-name">Father's name:</label>
       <input id="father-name" type="text" formControlName="fathername" />
       <div *ngIf="fatherName?.invalid && fatherName?.dirty" class="error">
-        <div *ngIf="fatherName.errors?.['pattern']" class="erro-message">
+        <div *ngIf="fatherName?.errors?.['pattern']" class="erro-message">
           no numbers in name
           <div class="circle-div"></div>
         </div>
@@ -106,9 +106,44 @@
       type="submit"
       [disabled]="!userProfileForm.valid"
       class="btn-submit"
+      (click)="onSubmit()"
     >
       Submit
     </button>
   </form>
 </div>
 <!-- <button type="button" (click)="test()">TEST</button> -->
+
+<h3>Reactive form table:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Father's name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of formData; let i = index">
+      <td>
+        <span>{{ formData[i].firstname }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].lastname }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].fathername }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].email }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].phonenumber }}</span>
+      </td>
+      <!-- <button type="button" (click)="edit(i)">Edit</button>
+      <button type="button" (click)="deleteData(i)">Delete</button> -->
+    </tr>
+  </tbody>
+</table>

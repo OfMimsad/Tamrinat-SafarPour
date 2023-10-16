@@ -7,7 +7,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./template-driven-form.component.css'],
 })
 export class TemplateDrivenFormComponent {
+  formData: any;
+  constructor() {
+    this.formData = [];
+  }
   onSubmit(form: NgForm) {
-    console.log(form);
+    this.formData.push(form.value);
   }
 }
