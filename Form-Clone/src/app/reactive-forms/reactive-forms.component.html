@@ -123,27 +123,30 @@
       <th>Father's name</th>
       <th>Email</th>
       <th>Phone number</th>
+      <th>Operations</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of formData; let i = index">
       <td>
-        <span>{{ formData[i].firstname }}</span>
+        <span>{{ data.firstname }}</span>
       </td>
       <td>
-        <span>{{ formData[i].lastname }}</span>
+        <span>{{ data.lastname }}</span>
       </td>
       <td>
-        <span>{{ formData[i].fathername }}</span>
+        <span>{{ data.fathername }}</span>
       </td>
       <td>
-        <span>{{ formData[i].email }}</span>
+        <span>{{ data.email }}</span>
       </td>
       <td>
         <span>{{ formData[i].phonenumber }}</span>
       </td>
-      <!-- <button type="button" (click)="edit(i)">Edit</button>
-      <button type="button" (click)="deleteData(i)">Delete</button> -->
+      <button class="btn-edit" type="button" (click)="edit(i)">Edit</button>
+      <button class="btn-delete" type="button" (click)="deleteData(i)">
+        Delete
+      </button>
     </tr>
   </tbody>
 </table>

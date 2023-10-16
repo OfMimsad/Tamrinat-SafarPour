@@ -11,7 +11,10 @@ import { Validators } from '@angular/forms';
 export class ReactiveFormsComponent {
   formData: any;
   userProfileForm: FormGroup;
+  editFlag?: boolean;
+  selectedEditIndex: number = 0;
   constructor(private fb: FormBuilder) {
+    this.editFlag = false;
     this.formData = [];
     this.userProfileForm = this.fb.group({
       firstname: [
@@ -72,17 +75,28 @@ export class ReactiveFormsComponent {
   }
 
   onSubmit(): void {
-    this.formData.push(this.userProfileForm.value);
-    console.log(this.formData);
-    this.userProfileForm.reset();
+    if (this.editFlag == false) {
+      this.formData.push(this.userProfileForm.value);
+      console.log(this.formData);
+      this.userProfileForm.reset();
+    }
+    if (this.editFlag == true) {
+      this.formData[this.selectedEditIndex] = this.userProfileForm.value;
+      this.editFlag = !this.editFlag;
+      this.userProfileForm.reset();
+    }
   }
 
-  // edit(i: number) {
-  //   // this.formData[i] = this.userProfileForm.value;
-  // }
-  // deleteData(i: number) {
-  //   this.formData.removeAt(i);
-  // }
+  edit(i: number) {
+    this.selectedEditIndex = i;
+    this.userProfileForm.setValue(this.formData[i]);
+    this.editFlag = !this.editFlag;
+  }
+  deleteData(i: number) {
+    let row = document.getElementById(`${i}`);
+    row?.remove();
+    this.formData.splice(i, 1);
+  }
   removeNum(i: number) {
     this.numbers.removeAt(i);
   }

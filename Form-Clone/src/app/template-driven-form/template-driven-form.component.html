@@ -1,51 +1,23 @@
 <div class="form">
   <h3>Template driven form</h3>
-  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+  <form (ngSubmit)="onSubmit(myForm)" (ngSubmit)="addForm(myForm)" #myForm="ngForm">
     <label for="fname">First Name</label>
-    <input
-      type="text"
-      id="fname"
-      placeholder="Your first name"
-      name="firstname"
-      ngModel
-      required
-      #fname="ngModel"
-      pattern="^[a-zA-Z]*"
-      minlength="3"
-    />
-    <small *ngIf="fname.touched && fname.invalid"
-      >First name is a required
+    <input type="text" id="fname" placeholder="Your first name" name="firstname" ngModel required #fname="ngModel"
+      pattern="^[a-zA-Z]*" minlength="3" />
+    <small *ngIf="fname.touched && fname.invalid">First name is a required
       <div *ngIf="fname.errors?.['pattern']">no number in name</div>
-      <div *ngIf="fname.errors?.['minlength']">name is short</div></small
-    >
+      <div *ngIf="fname.errors?.['minlength']">name is short</div>
+    </small>
 
     <label for="lname">Last Name</label>
-    <input
-      type="text"
-      id="lname"
-      placeholder="Your last name"
-      name="lastname"
-      ngModel
-      required
-      #lname="ngModel"
-      pattern="^[a-zA-Z]*"
-    />
-    <small *ngIf="lname.touched && lname.invalid"
-      >Last name is required
+    <input type="text" id="lname" placeholder="Your last name" name="lastname" ngModel required #lname="ngModel"
+      pattern="^[a-zA-Z]*" />
+    <small *ngIf="lname.touched && lname.invalid">Last name is required
       <div *ngIf="lname.errors?.['pattern']">no number in last name</div>
     </small>
 
     <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      placeholder="Your email"
-      name="email"
-      ngModel
-      required
-      email
-      #email="ngModel"
-    />
+    <input type="email" id="email" placeholder="Your email" name="email" ngModel required email #email="ngModel" />
     <div class="error-email" *ngIf="email.errors?.['email']">
       please input a valid email
     </div>
@@ -53,38 +25,14 @@
       Email is required
     </div>
     <label for="dname">Father's name</label>
-    <input
-      type="text"
-      id="dname"
-      placeholder="Your father's name"
-      name="dname"
-      ngModel
-      #dname="ngModel"
-      minlength="3"
-    />
-    <small *ngIf="dname.errors?.['minlength'] && dname.touched"
-      >name is short</small
-    >
+    <input type="text" id="dname" placeholder="Your father's name" name="dname" ngModel #dname="ngModel"
+      minlength="3" />
+    <small *ngIf="dname.errors?.['minlength'] && dname.touched">name is short</small>
     <label for="phone-number">Phone number</label>
-    <input
-      type="number"
-      id="phone-number"
-      placeholder="Your phone number"
-      name="phNumber"
-      ngModel
-      #phNumber="ngModel"
-      pattern="^(9|09)+(10|11|12|13|14|15|16|17|18|19|90|91|92|30|33|01|02|03|04|05|35|36|37|38|39|32|20|21|22)+([0-9]{7})$"
-    />
-    <small *ngIf="phNumber.errors?.['pattern'] && phNumber.touched"
-      >Invalid number</small
-    >
-    <input
-      type="submit"
-      id="btn"
-      value="Submit"
-      [disabled]="!myForm.valid"
-      class="btn-submit"
-    />
+    <input type="number" id="phone-number" placeholder="Your phone number" name="phNumber" ngModel #phNumber="ngModel"
+      pattern="^(9|09)+(10|11|12|13|14|15|16|17|18|19|90|91|92|30|33|01|02|03|04|05|35|36|37|38|39|32|20|21|22)+([0-9]{7})$" />
+    <small *ngIf="phNumber.errors?.['pattern'] && phNumber.touched">Invalid number</small>
+    <input type="submit" id="btn" value="Submit" [disabled]="!myForm.valid" class="btn-submit" />
   </form>
 </div>
 
@@ -96,25 +44,32 @@
       <th>Father's name</th>
       <th>Email</th>
       <th>Phone number</th>
+      <th>Operations</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of formData; let i = index">
-      <td>
-        <span>{{ formData[i].firstname }}</span>
+    <tr *ngFor="let data of formData; let i = index" id="{{ i }}">
+      <td id="f-{{ i }}">
+        <span>{{ data.firstname }}</span>
       </td>
-      <td>
-        <span>{{ formData[i].lastname }}</span>
+      <td id="l-{{ i }}">
+        <span>{{ data.lastname }}</span>
       </td>
-      <td>
-        <span>{{ formData[i].dname }}</span>
+      <td id="dn-{{ i }}">
+        <span>{{ data.dname }}</span>
       </td>
-      <td>
-        <span>{{ formData[i].email }}</span>
+      <td id="e-{{ i }}">
+        <span>{{ data.email }}</span>
       </td>
-      <td>
-        <span>{{ formData[i].phNumber }}</span>
+      <td id="ph-{{ i }}">
+        <span>{{ data.phNumber }}</span>
       </td>
+      <button class="btn-edit" type="button" id="btn-{{ i }}" (click)="editTableRow(i)">
+        Edit
+      </button>
+      <button class="btn-delete" id="btn-{{ i }}" type="button" (click)="deletTabelRow(i)">
+        Delete
+      </button>
     </tr>
   </tbody>
 </Table>
