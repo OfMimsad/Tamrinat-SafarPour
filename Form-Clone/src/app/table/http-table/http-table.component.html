@@ -1,0 +1,24 @@
+<!-- <Table>
+  <tr *ngFor="let data of datas">
+    <span>{{data.name}}</span>
+  </tr>
+</Table> -->
+
+<Table>
+  <thead>
+    <tr>
+      <th>اسم محصول</th>
+      <th>آخرین قیمت</th>
+      <th>تاریخ</th>
+      <!-- <th>قیمت قبلی</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datas">
+      <td>{{data.name}}</td>
+      <td>{{data.lastPrice}}</td>
+      <td>{{data.dateLastPriceRegistration}}</td>
+      <!-- <td [class.red]="data.lastPrice<data.dateLastPriceRegistration">{{data.oneBeforeLastPrice}}</td> -->
+    </tr>
+  </tbody>
+</Table>

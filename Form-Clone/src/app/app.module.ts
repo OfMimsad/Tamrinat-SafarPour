@@ -8,7 +8,7 @@ import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component'
 
 import {CommonModule} from '@angular/common';
 import {TemplateDrivenFormComponent} from './template-driven-form/template-driven-form.component';
-import {TableModuleModule} from './table-module/table-module.module';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -24,7 +24,7 @@ import {TableModuleModule} from './table-module/table-module.module';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    TableModuleModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
