@@ -1,0 +1,152 @@
+<div class="mainContainer">
+  <h3>Local DB Reactive Form</h3>
+  <form [formGroup]="userProfileForm" class="mainForm">
+    <!-- Requires onSubmit event -->
+    <div class="div-1 Row">
+      <label for="first-name">Firstname:</label>
+      <input id="first-name" type="text" formControlName="firstname" />
+      <div
+        *ngIf="
+          this.userProfileForm.get('firstname')?.invalid &&
+          this.userProfileForm.get('firstname')?.dirty
+        "
+        class="error"
+      >
+        <div
+          *ngIf="this.userProfileForm.get('firstname')?.errors?.['pattern']"
+          class="erro-message"
+        >
+          no numbers in name
+          <div class="circle-div"></div>
+        </div>
+        <div
+          *ngIf="this.userProfileForm.get('firstname')?.errors?.['minlength']"
+          class="erro-message"
+        >
+          firstname is short
+          <div class="circle-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-2 Row">
+      <label for="last-name">Lastname:</label>
+      <input id="last-name" type="text" formControlName="lastname" />
+      <div *ngIf="lastName?.invalid && lastName?.dirty" class="error">
+        <div *ngIf="lastName?.errors?.['pattern']" class="erro-message">
+          no numbers in last name
+          <div class="circle-div"></div>
+        </div>
+        <div *ngIf="lastName?.errors?.['minlength']" class="erro-message">
+          last name is short
+          <div class="circle-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-3 Row">
+      <label for="father-name">Father's name:</label>
+      <input id="father-name" type="text" formControlName="fathername" />
+      <div *ngIf="fatherName?.invalid && fatherName?.dirty" class="error">
+        <div *ngIf="fatherName?.errors?.['pattern']" class="erro-message">
+          no numbers in name
+          <div class="circle-div"></div>
+        </div>
+        <div *ngIf="fatherName?.errors?.['minlength']" class="erro-message">
+          name is short
+          <div class="circle-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-4 Row">
+      <label for="email-id">Email:</label>
+      <input id="email-id" type="text" formControlName="email" />
+      <div
+        *ngIf="email?.invalid && email?.dirty && email?.touched"
+        class="error"
+      >
+        <div *ngIf="email?.errors?.['email']" class="erro-message">
+          Invalid email
+          <div class="circle-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="phonenumber" class="phone-div">
+      <div
+        class="inside-phone Row"
+        *ngFor="let num of numbers.controls; let i = index; let first = first"
+      >
+        <label for="num-{{ i }}">Number: </label>
+        <input id="num-{{ i }}" type="text" [formControlName]="i" />
+        <div *ngIf="num?.invalid && num?.touched" class="error">
+          <div
+            *ngIf="num?.touched &&num?.errors?.['pattern']"
+            class="erro-message"
+          >
+            Invalid number
+          </div>
+        </div>
+        <button class="btn-AD remv" *ngIf="!first" (click)="removeNum(i)">
+          Remove
+        </button>
+      </div>
+      <button
+        class="btn-AD"
+        style="margin-top: 10px"
+        type="button"
+        (click)="addNumber()"
+      >
+        + Add another number
+      </button>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="!userProfileForm.valid"
+      class="btn-submit"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+<!-- <button type="button" (click)="test()">TEST</button> -->
+
+<h3>Reactive form table:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Father's name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of formData; let i = index">
+      <td>
+        <span>{{ data.firstname }}</span>
+      </td>
+      <td>
+        <span>{{ data.lastname }}</span>
+      </td>
+      <td>
+        <span>{{ data.fathername }}</span>
+      </td>
+      <td>
+        <span>{{ data.email }}</span>
+      </td>
+      <td>
+        <span>{{ formData[i].phonenumber }}</span>
+      </td>
+      <button class="btn-edit" type="button" (click)="edit(i)">Edit</button>
+      <button class="btn-delete" type="button" (click)="deleteData(i)">
+        Delete
+      </button>
+    </tr>
+  </tbody>
+</table>
