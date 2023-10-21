@@ -40,14 +40,12 @@ export class LocalDBformComponent implements OnInit
   }
   onSubmit()
   {
-    console.log(this.form);
     this.dbService.postData(this.form.value).subscribe({complete: () => {this.getData();}});
   }
 
   edit(id: any)
   {
     this.router.navigate(["edit", id]);
-
   }
   delete(id: any)
   {
