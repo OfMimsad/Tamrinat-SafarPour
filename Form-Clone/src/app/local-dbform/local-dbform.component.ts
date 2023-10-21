@@ -21,6 +21,7 @@ export class LocalDBformComponent implements OnInit
     if (this.route.snapshot.paramMap.get('id'))
     {
       this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.hideTable = true;
       this.setForm(this.id);
       this.editFlag = true;
     }
@@ -46,7 +47,7 @@ export class LocalDBformComponent implements OnInit
   edit(id: any)
   {
     this.router.navigate(["edit", id]);
-    this.hideTable = true;
+
   }
   delete(id: any)
   {
@@ -73,5 +74,6 @@ export class LocalDBformComponent implements OnInit
       complete: () => {this.getData();}
     });
     this.router.navigate(['DB']);
+    this.hideTable = false;
   }
 }
