@@ -1,0 +1,44 @@
+form
+{
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 100px;
+}
+
+.btn-submit
+{
+    width: 100px;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+table
+{
+    margin: 30px auto;
+    width: 550px;
+    border: solid 1px black;
+}
+
+tr,
+th,
+td
+{
+    border: 0.5px solid rgb(90, 90, 90);
+    padding-left: 8px;
+}
+
+.btn
+{
+    margin: 3px auto;
+    background-color: rgb(183, 236, 183);
+    width: 86px;
+}
+
+.btn-e
+{
+    margin: 3px 10px;
+    background-color: rgb(183, 236, 183);
+    border: none
+}

@@ -9,7 +9,9 @@ import {ReactiveFormsComponent} from './reactive-forms/reactive-forms.component'
 import {CommonModule} from '@angular/common';
 import {TemplateDrivenFormComponent} from './template-driven-form/template-driven-form.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LocalDbFormComponent } from './local-db-form/local-db-form.component';
+import {LocalDBformComponent} from './local-dbform/local-dbform.component';
+import {Observable} from 'rxjs';
+
 
 
 
@@ -19,7 +21,7 @@ import { LocalDbFormComponent } from './local-db-form/local-db-form.component';
     AppComponent,
     ReactiveFormsComponent,
     TemplateDrivenFormComponent,
-    LocalDbFormComponent,
+    LocalDBformComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { LocalDbFormComponent } from './local-db-form/local-db-form.component';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

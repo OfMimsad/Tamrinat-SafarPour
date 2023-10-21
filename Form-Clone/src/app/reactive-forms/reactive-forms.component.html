@@ -5,24 +5,15 @@
     <div class="div-1 Row">
       <label for="first-name">Firstname:</label>
       <input id="first-name" type="text" formControlName="firstname" />
-      <div
-        *ngIf="
+      <div *ngIf="
           this.userProfileForm.get('firstname')?.invalid &&
           this.userProfileForm.get('firstname')?.dirty
-        "
-        class="error"
-      >
-        <div
-          *ngIf="this.userProfileForm.get('firstname')?.errors?.['pattern']"
-          class="erro-message"
-        >
+        " class="error">
+        <div *ngIf="this.userProfileForm.get('firstname')?.errors?.['pattern']" class="erro-message">
           no numbers in name
           <div class="circle-div"></div>
         </div>
-        <div
-          *ngIf="this.userProfileForm.get('firstname')?.errors?.['minlength']"
-          class="erro-message"
-        >
+        <div *ngIf="this.userProfileForm.get('firstname')?.errors?.['minlength']" class="erro-message">
           firstname is short
           <div class="circle-div"></div>
         </div>
@@ -62,10 +53,7 @@
     <div class="div-4 Row">
       <label for="email-id">Email:</label>
       <input id="email-id" type="text" formControlName="email" />
-      <div
-        *ngIf="email?.invalid && email?.dirty && email?.touched"
-        class="error"
-      >
+      <div *ngIf="email?.invalid && email?.dirty && email?.touched" class="error">
         <div *ngIf="email?.errors?.['email']" class="erro-message">
           Invalid email
           <div class="circle-div"></div>
@@ -74,17 +62,11 @@
     </div>
 
     <div formArrayName="phonenumber" class="phone-div">
-      <div
-        class="inside-phone Row"
-        *ngFor="let num of numbers.controls; let i = index; let first = first"
-      >
+      <div class="inside-phone Row" *ngFor="let num of numbers.controls; let i = index; let first = first">
         <label for="num-{{ i }}">Number: </label>
         <input id="num-{{ i }}" type="text" [formControlName]="i" />
         <div *ngIf="num?.invalid && num?.touched" class="error">
-          <div
-            *ngIf="num?.touched &&num?.errors?.['pattern']"
-            class="erro-message"
-          >
+          <div *ngIf="num?.touched &&num?.errors?.['pattern']" class="erro-message">
             Invalid number
           </div>
         </div>
@@ -92,22 +74,12 @@
           Remove
         </button>
       </div>
-      <button
-        class="btn-AD"
-        style="margin-top: 10px"
-        type="button"
-        (click)="addNumber()"
-      >
+      <button class="btn-AD" style="margin-top: 10px" type="button" (click)="addNumber()">
         + Add another number
       </button>
     </div>
 
-    <button
-      type="submit"
-      [disabled]="!userProfileForm.valid"
-      class="btn-submit"
-      (click)="onSubmit()"
-    >
+    <button type="submit" [disabled]="!userProfileForm.valid" class="btn-submit" (click)="onSubmit()">
       Submit
     </button>
   </form>

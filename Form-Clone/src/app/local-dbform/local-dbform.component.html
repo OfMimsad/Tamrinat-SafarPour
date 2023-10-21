@@ -1,0 +1,35 @@
+<div>
+    <Form [formGroup]="form">
+        <label for="first-name">First name</label>
+        <input type="text" formControlName="firstName" id="first-name">
+        <label for="last-name">Last name</label>
+        <input type="text" formControlName="lastName" id="last-name">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" id="email">
+
+        <button *ngIf="editFlag == false" type="button" class="btn" (click)="onSubmit()">Submit</button>
+        <button *ngIf="editFlag == true" type="button" class="btn" (click)="updateForm()">Update</button>
+    </Form>
+</div>
+
+<div>
+    <Table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Operations/th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of datas">
+                <td>{{data.firstName}}</td>
+                <td>{{data.lastName}}</td>
+                <td>{{data.email}}</td>
+                <button class="btn-e" (click)="edit(data.id)">Edit</button>
+                <button class="btn-e" (click)="delete(data.id)">Delete</button>
+            </tr>
+        </tbody>
+    </Table>
+</div>
