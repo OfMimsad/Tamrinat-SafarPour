@@ -1,0 +1,30 @@
+.basic-container
+{
+    padding: 64px 64px 400px 64px;
+}
+
+.version-info
+{
+    font-size: 8pt;
+    float: right;
+    padding: 8px;
+}
+
+.icon
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-menu
+{
+    border: solid 0.1px rgb(204, 204, 204);
+    margin: 4px 10px;
+}
+
+.nested-menu
+{
+    width: auto;
+    display: block;
+
+}

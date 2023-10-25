@@ -1,0 +1,18 @@
+<div class="basic-container">
+  <span *ngFor="let item of rawArray">
+    <span *ngIf="item.children.length > 0 && item.parentId == '' ">
+      <button mat-button color="primary" [matMenuTriggerFor]="menu.childMenu" class="btn-menu">
+        <div class="icon">{{item.name}}
+          <mat-icon>expand_more</mat-icon>
+        </div>
+      </button>
+      <app-menu-item #menu [items]="item.children"></app-menu-item>
+    </span>
+
+    <span *ngIf="!item.children">
+      <button mat-button color="primary">
+        {{item.name}}
+      </button>
+    </span>
+  </span>
+</div>
