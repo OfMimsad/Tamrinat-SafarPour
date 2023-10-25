@@ -1,6 +1,7 @@
 .basic-container
 {
     padding: 64px 64px 400px 64px;
+    float: right;
 }
 
 .version-info

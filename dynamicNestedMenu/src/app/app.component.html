@@ -9,8 +9,8 @@
       <app-menu-item #menu [items]="item.children"></app-menu-item>
     </span>
 
-    <span *ngIf="!item.children">
-      <button mat-button color="primary">
+    <span *ngIf="item.parentId== '' && item.children.length == 0">
+      <button class="btn-menu" mat-button color="primary">
         {{item.name}}
       </button>
     </span>

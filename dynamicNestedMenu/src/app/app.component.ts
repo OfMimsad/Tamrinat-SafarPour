@@ -205,84 +205,124 @@ export class AppComponent implements OnInit
   // }
 
   rawArray: any = [
+
+
     {
-      name: "لوازم برقی",
+      name: "چهارمین پدر",
       parentId: "",
-      id: 1,
-      children: []
+      id: 4
+      , children: []
+
     },
     {
-      name: "اکسسوری",
+      name: "سومین پدر",
+      parentId: "",
+      id: 3
+      , children: []
+
+    },
+    {
+      name: "دومین پدر",
       parentId: "",
       id: 2
       , children: []
     },
     {
-      name: "جاروبرقی",
+      name: "اولین پدر",
+      parentId: "",
+      id: 1,
+      children: []
+    },
+
+    {
+      name: "بچه اول پدر اول",
       parentId: 1,
       id: 5
       , children: []
 
     },
     {
-      name: "یخچال",
+      name: "بچه دوم پدر اول",
       parentId: 1,
       id: 6
       , children: []
 
     },
     {
-      name: "لوازم خودرو",
-      parentId: "",
-      id: 8
+      name: "نوه اول بچه دوم پدر اول",
+      parentId: 6,
+      id: 7
       , children: []
 
     },
     {
-      name: "کف پوش",
-      parentId: 8,
+      name: "نتیجه اول پدر اول",
+      parentId: 7,
+      id: 8
+      , children: []
+    },
+    {
+      name: "نتیجه دوم پدر اول",
+      parentId: 7,
       id: 9
       , children: []
 
     },
     {
-      name: "خوش بو کننده",
-      parentId: 8,
-      id: 10
-      , children: []
-
-    },
-    {
-      name: "لوازم مصرفی خودرو",
-      parentId: 8,
+      name: "بچه اول پدر دوم",
+      parentId: 2,
       id: 11
       , children: []
-
     },
     {
-      name: "روغن موتور",
-      parentId: 11,
+      name: "بچه دوم پدر دوم",
+      parentId: 2,
       id: 12
       , children: []
-
     },
     {
-      name: "کفپوش 3D",
-      parentId: 8,
+      name: "نوه اول پدر دوم از پسر اول",
+      parentId: 11,
       id: 13
       , children: []
-
     },
     {
-      name: "روغن موتور SPEEDY",
-      parentId: 12,
+      name: "نوه دوم پدر دوم از پسر دوم",
+      parentId: 11,
       id: 14
       , children: []
-    },
+    }, {
+      name: "نتیجه اول از پسر دوم"
+      , parentId: 14
+      , id: 15
+      , children: []
+    }
+    ,
     {
-      name: "تست",
-      parentId: 14,
+      name: "ندیده اول پسر نتیجه اول",
+      parentId: 15,
+      id: 16
+      , children: []
+    }, {
+      name: "ندیده دوم پسر نتیجه اول",
+      parentId: 15,
       id: 17
+      , children: []
+    }, {
+      name: "ندیده سوم پسر نتیجه اول",
+      parentId: 15,
+      id: 18
+      , children: []
+    }, {
+      name: "پسر اول ندیده در دوم",
+      parentId: 17,
+      id: 19
+      , children: []
+    }
+    , {
+      name: "پسر اول پدر چهارم",
+      parentId: 4,
+      id: 20
       , children: []
     }
   ];
@@ -291,13 +331,13 @@ export class AppComponent implements OnInit
 
   makeTree(ary: any)
   {
-    for (let i = 0; i < ary.length; i++)
+    for (let x of ary)
     {
       for (let y of ary)
       {
-        if (ary[i].id == y.parentId)
+        if (x.id == y.parentId)
         {
-          ary[i].children.push(y);
+          x.children.push(y);
         }
       }
     }
