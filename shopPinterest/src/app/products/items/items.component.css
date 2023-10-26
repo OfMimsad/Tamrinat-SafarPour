@@ -1,0 +1,100 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container
+{
+    max-width: 85%;
+    margin: 100px auto;
+    position: relative;
+}
+
+.image-container
+{
+    columns: 3 250px;
+    gap: 15px;
+    position: relative;
+}
+
+.img-cls
+{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    /* border: 1px solid black; */
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 100;
+    position: relative;
+    opacity: 1;
+    display: block;
+}
+
+
+.img-cls:hover
+{
+    z-index: 5;
+}
+
+.price
+{
+    z-index: 10;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background: rgb(49, 43, 159);
+    background: linear-gradient(180deg, rgba(99, 94, 190, 0) 0%, rgba(253, 253, 255, 0) 35%, rgba(0, 212, 255, 1) 100%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0px 150px;
+    padding-top: 50px;
+}
+
+.span-img-container
+{
+    position: relative;
+}
+
+.price:hover
+{
+    z-index: 200;
+}
+
+.btn-add
+{
+    background-color: rgb(72, 38, 239);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    position: absolute;
+    bottom: 0px;
+    left: 4px;
+    height: 30px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.txt-phone-detail
+{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.608);
+
+}
+
+.header
+{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    height: 80px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

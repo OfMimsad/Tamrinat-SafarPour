@@ -1,1 +1,19 @@
-<div>ssssssssssssssssssssssssssssssssss</div>
+<div class="header">
+
+</div>
+
+
+
+
+<div class="container">
+    <div class="image-container">
+        <div class="span-img-container" *ngFor="let phone of phonesArry">
+            <img class="img-cls" [src]="phone.imgSrc" alt="'phone.name'">
+            <div class="price">
+                <div class="txt-phone-detail">${{phone.price}}</div>
+                <div class="txt-phone-detail"> {{phone.name}}</div>
+                <button class="btn-add">افزودن به سبد خرید</button>
+            </div>
+        </div>
+    </div>
+</div>
