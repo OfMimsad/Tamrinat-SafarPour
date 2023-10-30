@@ -155,12 +155,14 @@
 
 .inShop
 {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     color: white;
     background-color: red;
-    padding: 2px 4px;
-    border-radius: 50%;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
     position: absolute;
     top: -7px;
     left: 40px;

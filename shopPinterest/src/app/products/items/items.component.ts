@@ -10,18 +10,33 @@ export class ItemsComponent
 {
   phonesArry: any[] = [];
   quantityShop: number = 0;
+  boughtPhones: any[] = [];
   constructor(private phoneService: PhonesService)
   {
     this.phonesArry = this.phoneService.getPhones();
     console.log(this.phonesArry);
   }
 
-  incrementQuantity()
+  incrementQuantity(phone: any)
   {
-    this.quantityShop++;
+
+    let hasPhone = this.boughtPhones.includes(phone);
+    console.log(hasPhone);
+    if (hasPhone == false)
+    {
+      this.boughtPhones.push(phone);
+      this.quantityShop++;
+    }
+    if (hasPhone == true)
+    {
+      alert("کالا قبلا به سید خرید شما اضافه شده است");
+    }
+
+    console.log(this.boughtPhones);
   }
-  test()
+
+  pushToService()
   {
-    console.log('test');
+    this.phoneService.pushToSelected(this.boughtPhones);
   }
 }

@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class PhonesService
 {
-
+  selectedPhones: any[] = [];
   constructor() {}
 
   phones: any[] =
@@ -63,5 +63,14 @@ export class PhonesService
   getPhones()
   {
     return this.phones;
+  }
+
+  pushToSelected(ary: any[])
+  {
+    this.selectedPhones.push(ary);
+  }
+  getSelectedPhones()
+  {
+    return this.selectedPhones;
   }
 }
