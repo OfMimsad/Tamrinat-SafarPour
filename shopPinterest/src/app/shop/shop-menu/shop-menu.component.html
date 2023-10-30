@@ -1,19 +1,25 @@
 <div class="main-container">
     <div class="price">
         <div class="price-container">
-            <div>100</div>
+            <div>$100</div>
             <p>قیمت کل</p>
         </div>
         <button class="btn-shop">خرید</button>
     </div>
     <div class="item-detail">
         <div class="sabad-KharidSohma">
-            <div>سبد خرید شما</div>
-            <div>{{testAr.length}}</div>
+            <div class="txt-header">سبد خرید شما</div>
+            <div class="txt-itemQouantity">تعداد کالا در سبد خرید <span>{{testAr.length}}</span></div>
         </div>
         <div class="item-container" *ngFor="let item of testAr">
             <div class="detail-container">
-                <div>{{item.name}}</div>
+                <h3>{{item.name}} گوشی موبایل مدل</h3>
+                <div class="txt-detail-container">
+                    <div class="txt-phone-detail">مدل جدید <span class="imoji">🔥</span></div>
+                    <div class="txt-phone-detail">موجود در انبار <span class="imoji">✔</span></div>
+                    <div class="txt-phone-detail">ارسال فروشنده<span class="imoji">🙋‍♂️</span></div>
+                    <p class="txt-price-detail">${{item.price * 3}}</p>
+                </div>
             </div>
             <div class="pic-increment">
                 <img class="item-pic" [src]="item.imgSrc">

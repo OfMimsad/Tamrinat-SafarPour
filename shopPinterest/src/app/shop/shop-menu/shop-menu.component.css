@@ -4,6 +4,7 @@
     grid-template-columns: 300px 1fr;
     padding: 40px 50px;
     column-gap: 8px;
+    text-align: right;
 }
 
 .price
@@ -23,6 +24,7 @@
     height: auto;
     border: 0.8px rgb(177, 177, 177) solid;
     padding-inline: 15px;
+    border-radius: 6px;
 }
 
 .price-container
@@ -55,7 +57,7 @@
 .item-pic
 {
     width: 100px;
-    margin-right: 0;
+    margin-right: 10px;
 }
 
 .item-container
@@ -63,6 +65,8 @@
     border: 0.6px rgb(222, 222, 222) solid;
     display: grid;
     grid-template-columns: 1fr 150px;
+    margin-bottom: 10px;
+    border-radius: 3px;
 }
 
 .increment-option
@@ -76,16 +80,69 @@
     padding-top: 4px;
     padding-bottom: 4px;
     width: 100px;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 0px;
 }
 
 .increment-option button
 {
-    margin-inline: 0px;
+    margin: 0px;
 }
 
 .pic-increment
 {
     margin-top: 15px;
+    margin-left: 0px;
+}
+
+.detail-container
+{
+    /* border: 0.6px rgb(222, 222, 222) solid; */
+    height: 70%;
+    margin-top: 30px;
+    margin-left: 35px;
+    margin-right: -30px;
+    padding-top: 22px;
+}
+
+.txt-detail-container
+{
+    margin-top: 8px;
+}
+
+.txt-phone-detail
+{
+    font-size: 14px;
+    color: rgb(77, 77, 77);
+}
+
+.imoji
+{
+    margin-left: 5px;
+}
+
+.txt-price-detail
+{
+    text-align: left;
+    font-size: 22px;
+}
+
+.txt-header
+{
+    font-size: 22px;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.txt-itemQouantity
+{
+    font-size: 14px;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    color: rgb(107, 107, 107);
 }
