@@ -1,18 +1,29 @@
 <div class="header">
-
+    <div class="leftSide-header">
+        <div class="inside-leftHeader">
+            <button routerLink="S/shop" class="btn-shop" (click)="test()"><img
+                    src="https://cdn-icons-png.flaticon.com/512/263/263142.png" class="shop-icon"></button>
+            <h3>سبد خرید</h3>
+            <div class="inShop" *ngIf="quantityShop !=0">{{quantityShop}}</div>
+        </div>
+    </div>
+    <div class="rightSide-header">
+        <input type="search" class="searchBar" placeholder="جستجو">
+    </div>
+    <h2 class="txt-shopName">📱 گوشی امیری</h2>
 </div>
-
-
 
 
 <div class="container">
     <div class="image-container">
         <div class="span-img-container" *ngFor="let phone of phonesArry">
-            <img class="img-cls" [src]="phone.imgSrc" alt="'phone.name'">
-            <div class="price">
-                <div class="txt-phone-detail">${{phone.price}}</div>
-                <div class="txt-phone-detail"> {{phone.name}}</div>
-                <button class="btn-add">افزودن به سبد خرید</button>
+            <div class="image-overly">
+                <button class="btn-image" (click)="incrementQuantity()">افزودن به سبد خرید</button>
+            </div>
+            <img class="img-cls" [src]="phone.imgSrc">
+            <div class="detail-container">
+                <h3 class="header-text">{{phone.name}} گوشی موبایل</h3>
+                <p class="txt-price">${{phone.price}}</p>
             </div>
         </div>
     </div>

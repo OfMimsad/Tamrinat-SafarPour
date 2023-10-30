@@ -1,0 +1,28 @@
+<div class="main-container">
+    <div class="price">
+        <div class="price-container">
+            <div>100</div>
+            <p>قیمت کل</p>
+        </div>
+        <button class="btn-shop">خرید</button>
+    </div>
+    <div class="item-detail">
+        <div class="sabad-KharidSohma">
+            <div>سبد خرید شما</div>
+            <div>{{testAr.length}}</div>
+        </div>
+        <div class="item-container" *ngFor="let item of testAr">
+            <div class="detail-container">
+                <div>{{item.name}}</div>
+            </div>
+            <div class="pic-increment">
+                <img class="item-pic" [src]="item.imgSrc">
+                <div class="increment-option">
+                    <button>-</button>
+                    <div>1</div>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
