@@ -82,7 +82,7 @@ export class ShopMenuComponent implements OnInit
   deleteItem(i: any)
   {
     this.phoneArray.splice(i, 1);
-    // this.selectedPhonePrices = this.phoneArray;
+    this.selectedPhonePrices = this.phoneArray.slice();
     this.priceCal();
   }
 }
