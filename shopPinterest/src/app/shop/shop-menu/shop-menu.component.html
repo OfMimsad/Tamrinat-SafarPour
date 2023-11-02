@@ -23,11 +23,15 @@
             </div>
             <div class="pic-increment">
                 <img class="item-pic" [src]="item.imgSrc">
-                <div class="increment-option">
-                    <button [disabled]="item.quantity < 0" (click)=" decreaseQuantity(i)"
-                        (click)="removePhone(i)">-</button>
-                    <div *ngIf="item.quantity >= 0">{{item.quantity}}</div>
-                    <button (click)="addPhone(item)" (click)="increaseQuantity(i)">+</button>
+                <div>
+                    <div class="increment-option">
+                        <button [disabled]="item.quantity <= 1" (click)=" decreaseQuantity(i)"
+                            (click)="removePhone(i)">-</button>
+                        <div *ngIf="item.quantity >= 0">{{item.quantity}}</div>
+                        <button (click)="addPhone(item)" (click)="increaseQuantity(i)">+</button>
+                    </div>
+                    <button class="btn-delete"><img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+                        (click)="deleteItem(i)"    class="img-delete"></button>
                 </div>
             </div>
         </div>

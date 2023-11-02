@@ -146,3 +146,19 @@
     margin-bottom: 4px;
     color: rgb(107, 107, 107);
 }
+
+.btn-delete
+{
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    outline: none;
+    margin-right: 20px;
+    margin-bottom: 6px;
+}
+
+.img-delete
+{
+    width: 20px;
+    cursor: pointer;
+}

@@ -11,7 +11,6 @@ export class ShopMenuComponent implements OnInit
 {
   phoneArray: any[] = [];
   selectedPhonePrices: any = [];
-  indexI?: number;
   constructor(private phoneService: PhonesService)
   {
   }
@@ -44,7 +43,7 @@ export class ShopMenuComponent implements OnInit
 
   priceCal()
   {
-    if (this.selectedPhonePrices.lenght == 0)
+    if (this.selectedPhonePrices.length == 0 || this.phoneArray.length == 0)
     {
       this.overAllPrice = 0;
     } else 
@@ -67,12 +66,10 @@ export class ShopMenuComponent implements OnInit
   increaseQuantity(i: any)
   {
     this.phoneArray[i].quantity += 1;
-    // console.log(this.phoneArray[i].quantity);
   }
 
   decreaseQuantity(i: any)
   {
-    this.indexI = i;
     this.phoneArray[i].quantity -= 1;
   }
 
@@ -80,9 +77,12 @@ export class ShopMenuComponent implements OnInit
   {
     this.selectedPhonePrices.splice(i, 1);
     this.priceCal();
-    if (this.selectedPhonePrices.lenght == 1)
-    {
-      this.selectedPhonePrices.pop();
-    }
+  }
+
+  deleteItem(i: any)
+  {
+    this.phoneArray.splice(i, 1);
+    // this.selectedPhonePrices = this.phoneArray;
+    this.priceCal();
   }
 }
