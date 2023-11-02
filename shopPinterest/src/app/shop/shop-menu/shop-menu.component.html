@@ -1,7 +1,7 @@
 <div class="main-container">
     <div class="price">
         <div class="price-container">
-            <div>$100</div>
+            <div>{{overAllPrice}}</div>
             <p>قیمت کل</p>
         </div>
         <button class="btn-shop">خرید</button>
@@ -11,22 +11,22 @@
             <div class="txt-header">سبد خرید شما</div>
             <div class="txt-itemQouantity">تعداد کالا در سبد خرید <span>{{phoneArray.length}}</span></div>
         </div>
-        <div class="item-container" *ngFor="let item of phoneArray">
+        <div class="item-container" *ngFor="let item of phoneArray; let i = index">
             <div class="detail-container">
                 <h3>{{item.name}} گوشی موبایل مدل</h3>
                 <div class="txt-detail-container">
                     <div class="txt-phone-detail">مدل جدید <span class="imoji">🔥</span></div>
                     <div class="txt-phone-detail">موجود در انبار <span class="imoji">✔</span></div>
                     <div class="txt-phone-detail">ارسال فروشنده<span class="imoji">🙋‍♂️</span></div>
-                    <p class="txt-price-detail">${{item.price * 3}}</p>
+                    <p class="txt-price-detail">${{item.price}}</p>
                 </div>
             </div>
             <div class="pic-increment">
                 <img class="item-pic" [src]="item.imgSrc">
                 <div class="increment-option">
-                    <button>-</button>
-                    <div>1</div>
-                    <button>+</button>
+                    <button (click)=" decreaseQuantity(i)" (click)="removePhone(i)">-</button>
+                    <div *ngIf="item.quantity > 0">{{item.quantity}}</div>
+                    <button (click)="addPhone(item)" (click)="increaseQuantity(i)">+</button>
                 </div>
             </div>
         </div>

@@ -1,10 +1,10 @@
 <div class="header">
     <div class="leftSide-header">
         <div class="inside-leftHeader">
-            <button routerLink="S/shop" class="btn-shop"><img
-                  (click)="pushToService()"  src="https://cdn-icons-png.flaticon.com/512/263/263142.png" class="shop-icon"></button>
+            <button routerLink="S/shop" class="btn-shop"><img (click)="pushToService()"
+                    src="https://cdn-icons-png.flaticon.com/512/263/263142.png" class="shop-icon"></button>
             <h3>سبد خرید</h3>
-            <div class="inShop" *ngIf="quantityShop !=0">{{quantityShop}}</div>
+            <div class="inShop" *ngIf="boughtPhones.length > 0">{{boughtPhones.length}}</div>
         </div>
     </div>
     <div class="rightSide-header">

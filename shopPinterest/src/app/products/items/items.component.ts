@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PhonesService} from 'src/app/phones.service';
 
 @Component({
@@ -6,37 +6,40 @@ import {PhonesService} from 'src/app/phones.service';
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
-export class ItemsComponent
+export class ItemsComponent implements OnInit
 {
   phonesArry: any[] = [];
-  quantityShop: number = 0;
   boughtPhones: any[] = [];
   constructor(private phoneService: PhonesService)
   {
     this.phonesArry = this.phoneService.getPhones();
-    console.log(this.phonesArry);
+    // console.log(this.phonesArry);
+  }
+  ngOnInit()
+  {
+    // this.phoneService.deleteDB();
   }
 
   incrementQuantity(phone: any)
   {
 
     let hasPhone = this.boughtPhones.includes(phone);
-    console.log(hasPhone);
+    // console.log(hasPhone);
     if (hasPhone == false)
     {
       this.boughtPhones.push(phone);
-      this.quantityShop++;
     }
     if (hasPhone == true)
     {
       alert("کالا قبلا به سید خرید شما اضافه شده است");
     }
 
-    console.log(this.boughtPhones);
+    // console.log(this.boughtPhones);
   }
 
   pushToService()
   {
-    this.phoneService.pushToSelected(this.boughtPhones);
+    // this.phoneService.pushToSelected(this.boughtPhones).subscribe();
+    this.phoneService.pushToobsSelected(this.boughtPhones);
   }
 }
