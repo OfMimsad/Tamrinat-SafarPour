@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {isEmpty} from 'rxjs';
 import {PhonesService} from 'src/app/phones.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class ShopMenuComponent implements OnInit
 {
   phoneArray: any[] = [];
   selectedPhonePrices: any = [];
+  indexI?: number;
   constructor(private phoneService: PhonesService)
   {
   }
@@ -42,10 +44,17 @@ export class ShopMenuComponent implements OnInit
 
   priceCal()
   {
-    this.overAllPrice = this.selectedPhonePrices.reduce((pre: any, cur: any) => 
+    if (this.selectedPhonePrices.lenght == 0)
     {
-      return cur.price + pre;
-    }, 0);
+      this.overAllPrice = 0;
+    } else 
+    {
+      console.log(this.selectedPhonePrices);
+      this.overAllPrice = this.selectedPhonePrices.reduce((pre: any, cur: any) => 
+      {
+        return cur.price + pre;
+      }, 0);
+    }
   }
 
 
@@ -53,13 +62,6 @@ export class ShopMenuComponent implements OnInit
   {
     this.selectedPhonePrices.push(phone);
     this.priceCal();
-    let index = this.phoneArray.find((obj) =>
-    {
-      obj == phone;
-    });
-    // console.log(index);
-    // this.phoneArray[index].quantity = + 1;
-    // console.log(this.phoneArray[index].quantity);
   }
 
   increaseQuantity(i: any)
@@ -70,15 +72,17 @@ export class ShopMenuComponent implements OnInit
 
   decreaseQuantity(i: any)
   {
+    this.indexI = i;
     this.phoneArray[i].quantity -= 1;
   }
 
   removePhone(i: any)
   {
-    if (this.selectedPhonePrices[i].quantity > 1)
-    {
-      this.selectedPhonePrices.splice(i, 1);
-    }
+    this.selectedPhonePrices.splice(i, 1);
     this.priceCal();
+    if (this.selectedPhonePrices.lenght == 1)
+    {
+      this.selectedPhonePrices.pop();
+    }
   }
 }

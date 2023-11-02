@@ -24,8 +24,9 @@
             <div class="pic-increment">
                 <img class="item-pic" [src]="item.imgSrc">
                 <div class="increment-option">
-                    <button (click)=" decreaseQuantity(i)" (click)="removePhone(i)">-</button>
-                    <div *ngIf="item.quantity > 0">{{item.quantity}}</div>
+                    <button [disabled]="item.quantity < 0" (click)=" decreaseQuantity(i)"
+                        (click)="removePhone(i)">-</button>
+                    <div *ngIf="item.quantity >= 0">{{item.quantity}}</div>
                     <button (click)="addPhone(item)" (click)="increaseQuantity(i)">+</button>
                 </div>
             </div>
