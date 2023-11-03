@@ -17,9 +17,11 @@ export class ShopMenuComponent implements OnInit
 
   ngOnInit()
   {
+
     this.getDataObsof();
     this.selectedPhonePrices = this.phoneArray.slice();
     this.priceCal();
+
   }
 
   tempArr: any = [];
@@ -32,7 +34,14 @@ export class ShopMenuComponent implements OnInit
         this.tempArr = [...val];
         this.tempArr.forEach((i: any[]) =>
         {
-          this.phoneArray.push(...i);
+          for (let item of i)
+          {
+            let checkHas = this.phoneArray.includes(item);
+            if (checkHas == false)
+            {
+              this.phoneArray.push(item);
+            }
+          }
         });
         this.tempArr = [];
       }
@@ -48,7 +57,6 @@ export class ShopMenuComponent implements OnInit
       this.overAllPrice = 0;
     } else 
     {
-      console.log(this.selectedPhonePrices);
       this.overAllPrice = this.selectedPhonePrices.reduce((pre: any, cur: any) => 
       {
         return cur.price + pre;
