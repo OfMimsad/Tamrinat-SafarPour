@@ -52,9 +52,12 @@ export class ShopMenuComponent implements OnInit
       {
         data.forEach((i: any) =>
         {
-          // let checkHas = this.phoneArray.includes(i);
-          this.phoneArray.push(i);
-          console.log(this.phoneArray);
+          let checkHas = this.phoneArray.includes(i);
+          if (checkHas == false)
+          {
+            this.phoneArray.push(i);
+            // console.log(this.phoneArray);
+          }
         });
       }
     });
