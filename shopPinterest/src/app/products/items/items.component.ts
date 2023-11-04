@@ -42,4 +42,8 @@ export class ItemsComponent implements OnInit
     // this.phoneService.pushToSelected(this.boughtPhones).subscribe();
     this.phoneService.pushToobsSelected(this.boughtPhones);
   }
+  pushToTestSubject()
+  {
+    this.phoneService.addToTestSubject(this.boughtPhones);
+  }
 }

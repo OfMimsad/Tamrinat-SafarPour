@@ -21,29 +21,41 @@ export class ShopMenuComponent implements OnInit
     this.getDataObsof();
     this.selectedPhonePrices = this.phoneArray.slice();
     this.priceCal();
-
   }
 
   tempArr: any = [];
   getDataObsof()
   {
-    this.phoneArray = [];
-    this.phoneService.returnObsOf().subscribe({
-      next: (val) => 
+    // this.phoneArray = [];
+    // this.phoneService.returnObsOf().subscribe({
+    //   next: (val) => 
+    //   {
+    //     this.tempArr = [...val];
+    //     this.tempArr.forEach((i: any[]) =>
+    //     {
+    //       for (let item of i)
+    //       {
+    //         let checkHas = this.phoneArray.includes(item);
+    //         if (checkHas == false)
+    //         {
+    //           this.phoneArray.push(item);
+    //         }
+    //       }
+    //     });
+    //     this.tempArr = [];
+    //   }
+    // });
+
+
+    this.phoneService.returnSubject().subscribe({
+      next: (data) =>
       {
-        this.tempArr = [...val];
-        this.tempArr.forEach((i: any[]) =>
+        data.forEach((i: any) =>
         {
-          for (let item of i)
-          {
-            let checkHas = this.phoneArray.includes(item);
-            if (checkHas == false)
-            {
-              this.phoneArray.push(item);
-            }
-          }
+          // let checkHas = this.phoneArray.includes(i);
+          this.phoneArray.push(i);
+          console.log(this.phoneArray);
         });
-        this.tempArr = [];
       }
     });
   }

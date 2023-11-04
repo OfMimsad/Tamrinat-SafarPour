@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, empty, EMPTY} from 'rxjs';
-import {of} from 'rxjs';
+import {of, Subject, BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -84,4 +84,14 @@ export class PhonesService
     return this.obsOf;
   }
 
+  public testSubject = new BehaviorSubject<any>([]);
+
+  addToTestSubject(data: any)
+  {
+    this.testSubject.next(data);
+  }
+  returnSubject(): Subject<any>
+  {
+    return this.testSubject;
+  }
 }
