@@ -84,13 +84,13 @@ export class PhonesService
     return this.obsOf;
   }
 
-  public testSubject = new BehaviorSubject<any>([]);
+  testSubject = new BehaviorSubject<any>([]);
 
   addToTestSubject(data: any)
   {
     this.testSubject.next(data);
   }
-  returnSubject(): Subject<any>
+  returnSubject(): BehaviorSubject<any>
   {
     return this.testSubject;
   }

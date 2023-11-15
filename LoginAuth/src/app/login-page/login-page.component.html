@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="form-div">
+        <Form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submit()">
+            <label for="username">:نام کاربری</label>
+            <input formControlName="username" class="input" type="text" id="username" autocomplete="off"
+                placeholder=" لطفا نام کاربری خود را وارد کنید ">
+            <label for="password">:رمز عبور</label>
+            <input formControlName="password" class="input" type="text" id="password" autocomplete="off"
+                placeholder="لطفا رمز عبور خود را وارد کنید">
+            <button class="btn-login" type="submit">ورود</button>
+        </Form>
+    </div>
+</div>
